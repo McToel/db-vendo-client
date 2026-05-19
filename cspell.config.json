@@ -638,7 +638,8 @@
     "MOTIS",
     "motis",
     "Berechnung",
-    "fällt"
+    "fällt",
+    "CHACHA"
   ],
   "ignorePaths": [
     "docs/dumps/**",
