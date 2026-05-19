@@ -132,6 +132,12 @@ if (process.env.VCR_MODE && !process.env.VCR_OFF) {
 			if (req.hasHeader('X-Correlation-ID')) {
 				req.setHeader('X-Correlation-ID', ['null']);
 			}
+			//if (req.hasHeader('Content-Type')) {
+			//	req.setHeader('Content-Type', ['application/json']);
+			//}
+			if (req.hasHeader('Accept-Encoding')) {
+				req.setHeader('Accept-Encoding', ['gzip, br, deflate']);
+			}
 		});
 
 	tap.teardown(async () => {
