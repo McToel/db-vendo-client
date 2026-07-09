@@ -639,7 +639,8 @@
     "motis",
     "Berechnung",
     "fällt",
-    "CHACHA"
+    "CHACHA",
+    "sollzeit"
   ],
   "ignorePaths": [
     "docs/dumps/**",

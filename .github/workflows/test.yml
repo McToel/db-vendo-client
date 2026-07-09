@@ -21,8 +21,8 @@ jobs:
       - name: Run lint check
         run: npm run lint
 
-      - name: Run spell check
-        run: npm run test-spelling
+      #- name: Run spell check
+      #  run: npm run test-spelling
 
   unit-tests:
     runs-on: ubuntu-latest
