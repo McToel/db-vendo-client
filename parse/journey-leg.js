@@ -24,7 +24,7 @@ const parseJourneyLeg = (ctx, pt, date, fallbackLocations) => { // pt = raw leg
 	};
 
 	const cancelledDep = stops.length && profile.parseCancelled(stops[0]);
-	const dep = profile.parseWhen(ctx, date, pt.abfahrtsZeitpunkt || pt.abgangsDatum || stops.length && (stops[0].abgangsDatum || stops[0].departureTime?.target), pt.ezAbfahrtsZeitpunkt || pt.ezAbgangsDatum || stops.length && (stops[0].ezAbgangsDatum || stops[0].departureTime?.timeType != 'SCHEDULE' && stops[0].departureTime?.predicted), cancelledDep,
+	const dep = profile.parseWhen(ctx, date, pt.abfahrtsZeitpunkt || pt.abgangsDatum || pt.abfahrt?.sollzeit || stops.length && (stops[0].abgangsDatum || stops[0].departureTime?.target), pt.ezAbfahrtsZeitpunkt || pt.ezAbgangsDatum || pt.abfahrt?.echtzeit || stops.length && (stops[0].ezAbgangsDatum || stops[0].departureTime?.timeType != 'SCHEDULE' && stops[0].departureTime?.predicted), cancelledDep,
 	);
 	res.departure = dep.when;
 	res.plannedDeparture = dep.plannedWhen;
@@ -34,7 +34,7 @@ const parseJourneyLeg = (ctx, pt, date, fallbackLocations) => { // pt = raw leg
 	}
 
 	const cancelledArr = stops.length && profile.parseCancelled(stops[stops.length - 1]);
-	const arr = profile.parseWhen(ctx, date, pt.ankunftsZeitpunkt || pt.ankunftsDatum || stops.length && (stops[stops.length - 1].ankunftsDatum || stops[stops.length - 1].arrivalTime?.target), pt.ezAnkunftsZeitpunkt || pt.ezAnkunftsDatum || stops.length && (stops[stops.length - 1].ezAnkunftsDatum || stops[stops.length - 1].arrivalTime?.timeType != 'SCHEDULE' && stops[stops.length - 1].arrivalTime?.predicted), cancelledArr,
+	const arr = profile.parseWhen(ctx, date, pt.ankunftsZeitpunkt || pt.ankunftsDatum || pt.ankunft?.sollzeit || stops.length && (stops[stops.length - 1].ankunftsDatum || stops[stops.length - 1].arrivalTime?.target), pt.ezAnkunftsZeitpunkt || pt.ezAnkunftsDatum || pt.ankunft?.echtzeit || stops.length && (stops[stops.length - 1].ezAnkunftsDatum || stops[stops.length - 1].arrivalTime?.timeType != 'SCHEDULE' && stops[stops.length - 1].arrivalTime?.predicted), cancelledArr,
 	);
 	res.arrival = arr.when;
 	res.plannedArrival = arr.plannedWhen;

@@ -209,6 +209,8 @@ const parseCancelled = (ref) => {
 	return ref.canceled
 		|| ref.cancelled
 		|| ref.journeyCancelled
+		|| ref.originCancelled
+		|| ref.destinationCancelled
 		|| (ref.risNotizen || ref.echtzeitNotizen || ref.meldungen) && Boolean(
 			(ref.risNotizen || ref.echtzeitNotizen || ref.meldungen).find(r => r.key == 'text.realtime.stop.cancelled'
 				|| r.type == 'HALT_AUSFALL'

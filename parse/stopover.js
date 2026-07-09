@@ -2,10 +2,10 @@ const parseStopover = (ctx, st, date) => { // st = raw stopover
 	const {profile, opt} = ctx;
 
 	const cancelled = profile.parseCancelled(st);
-	const arr = profile.parseWhen(ctx, date, st.ankunftsZeitpunkt || st.ankunftsDatum || st.arrivalTime?.target, st.ezAnkunftsZeitpunkt || st.ezAnkunftsDatum || st.arrivalTime?.timeType != 'SCHEDULE' && st.arrivalTime?.predicted, cancelled,
+	const arr = profile.parseWhen(ctx, date, st.ankunftsZeitpunkt || st.ankunftsDatum || st.ankunft?.sollzeit || st.arrivalTime?.target, st.ezAnkunftsZeitpunkt || st.ezAnkunftsDatum || st.ankunft?.echtzeit || st.arrivalTime?.timeType != 'SCHEDULE' && st.arrivalTime?.predicted, cancelled,
 	);
 	const arrPl = profile.parsePlatform(ctx, st.gleis || st.track?.target, st.ezGleis || st.track?.prediction);
-	const dep = profile.parseWhen(ctx, date, st.abfahrtsZeitpunkt || st.abgangsDatum || st.departureTime?.target, st.ezAbfahrtsZeitpunkt || st.ezAbgangsDatum || st.departureTime?.timeType != 'SCHEDULE' && st.departureTime?.predicted, cancelled,
+	const dep = profile.parseWhen(ctx, date, st.abfahrtsZeitpunkt || st.abgangsDatum || st.abfahrt?.sollzeit || st.departureTime?.target, st.ezAbfahrtsZeitpunkt || st.ezAbgangsDatum || st.abfahrt?.echtzeit || st.departureTime?.timeType != 'SCHEDULE' && st.departureTime?.predicted, cancelled,
 	);
 	const depPl = arrPl;
 
