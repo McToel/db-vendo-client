@@ -1,0 +1,25 @@
+FROM oven/bun:1-alpine
+
+LABEL org.opencontainers.image.title="db-vendo-client"
+LABEL org.opencontainers.image.description="A clean REST API wrapping around the new Deutsche Bahn API."
+LABEL org.opencontainers.image.authors="Traines <git@traines.eu>"
+LABEL org.opencontainers.image.documentation="https://github.com/public-transport/db-vendo-client"
+LABEL org.opencontainers.image.source="https://github.com/public-transport/db-vendo-client"
+LABEL org.opencontainers.image.licenses="ISC"
+
+WORKDIR /app
+
+# Add git to install git-based dependencies
+RUN apk add --no-cache git
+
+# install dependencies using package-lock.json
+COPY package.json package-lock.json ./
+RUN bun install
+
+# add source code
+COPY . .
+
+EXPOSE 3000
+ENV PORT=3000
+
+CMD ["bun", "api.js"]
