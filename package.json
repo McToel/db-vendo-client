@@ -55,7 +55,7 @@
 	],
 	"packageManager": "npm@10.9.0",
 	"engines": {
-		"node": ">=20"
+		"node": ">=24"
 	},
 	"dependencies": {
 		"content-type": "^1.0.5",

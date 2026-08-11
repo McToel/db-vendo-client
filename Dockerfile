@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:24-alpine
 LABEL org.opencontainers.image.title="db-vendo-client"
 LABEL org.opencontainers.image.description="A clean REST API wrapping around the new Deutsche Bahn API."
 LABEL org.opencontainers.image.authors="Traines <git@traines.eu>"
