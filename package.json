@@ -55,16 +55,15 @@
 	],
 	"packageManager": "npm@10.9.0",
 	"engines": {
-		"node": ">=18"
+		"node": ">=20"
 	},
 	"dependencies": {
 		"content-type": "^1.0.5",
-		"cross-fetch": "^4.1.0",
 		"db-hafas-stations": "2.0.0",
 		"gps-distance": "0.0.4",
-		"https-proxy-agent": "^7.0.6",
 		"luxon": "^3.5.0",
 		"qs": "^6.14.0",
+		"wreq-js": "^3.0.0",
 		"slugg": "^1.2.1",
 		"uuid": "^11.1.0"
 	},
